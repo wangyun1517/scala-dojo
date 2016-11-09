@@ -1,0 +1,62 @@
+#+STARTUP: indent
+#+STARTUP: showall
+#+PROPERTY: header-args :results replace
+
+#+TITLE: Scala-Dojo
+#+author: Jianming Qu
+
+**** Author: Jianming Qu
+
+一个针对 Scala 语言和函数式编程的 Dojo Project. 其目的是让参与者能够在基于 Scala 函数式软件生产与交付过程中快速上手.
+受试者将会使用 Scala 和函数式编程来搭建一个简单的API, 其中涉及以下方面:
+
+- Scala and FP basic
+- [[https://github.com/typelevel/cats][Cats]]
+- [[https://github.com/atnos-org/eff-cats][Cats-eff]]
+- [[https://github.com/akka/akka-http][Akka-http]]
+- [[http://etorreborre.github.io/specs2/][Specs2]]
+- [[https://www.scalacheck.org][Scalacheck]]
+
+** 受试者
+对 Scala 基本语言特性具有一定了解的软件开发人员.
+
+** 准备
+
+确保在正式的 Dojo 之前, 准备好相应环境.
+
+*** 命令行环境
+
+1. 克隆到本地环境
+#+BEGIN_SRC shell
+git clone git@github.com:SanCoder-Q/scala-dojo.git
+#+END_SRC
+
+2. 在 mac 命令行运行以下命令:
+#+BEGIN_SRC shell
+brew update
+brew install sbt #brew upgrade sbt
+sbt console
+#+END_SRC
+
+在之后, 在 Scala REPL 中输入以下语句:
+#+BEGIN_SRC scala 
+1.some |+| 2.some
+#+END_SRC
+
+REPL 中应有如下输出:
+#+BEGIN_SRC shell
+res2: Option[Int] = Some(3)
+#+END_SRC
+
+*** IDE 环境
+
+1. 安装 IntelliJ 及官方 Scala 插件
+https://plugins.jetbrains.com/plugin/1347
+
+2. 在 Intellij 中安装命令行加载工具
+Tools -> Create Command-line Launcher
+
+3. 在项目根目录下执行
+#+BEGIN_SRC shell
+idea .
+#+END_SRC
