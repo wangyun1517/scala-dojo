@@ -1,0 +1,7 @@
+package com.tw
+
+object MainApp {
+  def main(args: Array[String]): Unit = {
+    println("Hello Scala World.")
+  }
+}
