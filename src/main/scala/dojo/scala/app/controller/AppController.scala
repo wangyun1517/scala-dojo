@@ -1,8 +1,9 @@
 package dojo.scala.app.controller
 
-/**
-  * Created by yunwang on 01/12/2016.
-  */
+import scala.util.Random
+
 object AppController {
+
+  def get(min: Int, max: Int): String = (min + Random.nextInt(max - min)).toString()
 
 }
