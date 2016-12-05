@@ -1,9 +1,11 @@
 package dojo.scala.app.controller
 
-import scala.util.Random
+import dojo.scala.app.model.AppAction
+import dojo.scala.app.service.AppService
 
 object AppController {
 
-  def get(min: Int, max: Int): String = (min + Random.nextInt(max - min)).toString()
+  def get(min: Int, max: Int): AppAction[String] =
+    AppService.getRandomInt(min, max).map(_.toString)
 
 }

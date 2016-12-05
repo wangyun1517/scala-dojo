@@ -2,6 +2,7 @@ package dojo.scala.app
 
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.http.scaladsl.server.Route
+import com.tw.{Servable, ServerConfig}
 import dojo.scala.app.route.AppRoute
 
 import scala.concurrent.Future
