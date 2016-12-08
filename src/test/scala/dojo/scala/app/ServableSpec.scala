@@ -5,7 +5,6 @@ import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.util.ByteString
-import com.tw.AkkaConfig
 import org.scalacheck.Gen
 import org.specs2.mutable.Specification
 
@@ -16,8 +15,9 @@ object ServableSpec extends Specification with AkkaConfig {
   "start" should {
     "response correct when send a request" in {
       val randomPort = Gen.chooseNum[Int](2000, 60000).sample.get
-      val servable = new Servable {
+      val servable = new Servable with AkkaConfig {
         override val port = randomPort
+
         def handler: (HttpRequest) => Future[HttpResponse] = Route.asyncHandler {
           get {
             complete("Ok")

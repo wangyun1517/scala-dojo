@@ -1,4 +1,4 @@
-package com.tw
+package dojo.scala.app
 
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.Http.ServerBinding
@@ -7,7 +7,9 @@ import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}
 
-trait Servable extends AkkaConfig with ServerConfig {
+trait Servable extends ServerConfig {
+
+  this: AkkaConfig =>
 
   def handler: (HttpRequest) => Future[HttpResponse]
 

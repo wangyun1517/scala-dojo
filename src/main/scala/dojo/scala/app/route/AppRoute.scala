@@ -1,14 +1,18 @@
 package dojo.scala.app.route
 
 import akka.http.scaladsl.server.Directives._
+import cats.~>
 import dojo.scala.app.controller.AppController
+import dojo.scala.app.model.AppAction
 
-object AppRoute {
+import scala.concurrent.Future
+
+class AppRoute(implicit interpreter: AppAction ~> Future) {
 
   val route = get {
     parameters("min".as[Int], "max".as[Int]) { (min, max) =>
       complete {
-        AppController.get(min,max)
+        AppController.get(min, max).runAction[Future]
       }
     }
   }
